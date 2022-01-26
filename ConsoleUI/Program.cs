@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    class Program
+     public class Program
     {
         static void Main(string[] args)
         {
+
+
+
+
             /*
              * Todo follow all comments!! 
              */
@@ -31,22 +35,50 @@ namespace ConsoleUI
              * Only in the Motorcycle class will you override the virtual drive method
             */
 
+
             // Create a list of Vehicle called vehicles
+
+            var vehicles = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            Car car1 = new Car() { Year = "2020", Make = "toyota", Model = "4Runner", HasTrunk = true };
+            Motorcycle moto1 = new Motorcycle() { Year = "2019", Make = "Harley", Model = "Davidson", HasSideCart = true };
+            Vehicle car2 = new Car() { Year = "2019", Make = "honda", Model = "accord", HasTrunk = true };
+            Vehicle moto2 = new Motorcycle() { Year = "2021", Make = "Ducati", Model = "900SS", HasSideCart = false };
+
+
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
+            vehicles.Add(car1);
+            vehicles.Add(car2);
+            vehicles.Add(moto1);
+            vehicles.Add(moto2);
+
+            foreach (var item in vehicles)
+            {
+                Console.WriteLine($"{item.Year} {item.Make} {item.Model}");
+                Console.WriteLine();
+                item.DriveAbstract();
+                Console.WriteLine();
+                item.DriveVirtual();
+            }
+
+
+
+
+
+
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
